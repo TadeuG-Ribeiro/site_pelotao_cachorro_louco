@@ -1,6 +1,6 @@
 :root {
   --vermelho: #bd1c11d7;
-  --cinza-claro: #57585a7b;
+  --cinza-claro: #80808056;
   --cinza-escuro: #222;
 }
 
@@ -43,6 +43,52 @@ nav a {
 
 nav a:hover {
   color: var(--vermelho);
+}
+
+/* hamburger / mobile nav styles */
+.nav-toggle{
+  display: none; /* shown only on small screens */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: white;
+}
+.nav-toggle .hamburger{
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: white;
+  position: relative;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: white;
+}
+.nav-toggle .hamburger::before{ top: -7px; }
+.nav-toggle .hamburger::after{ top: 7px; }
+
+/* main-nav default (desktop) keeps existing horizontal layout */
+.main-nav{ display: flex; gap: 10px; align-items: center; }
+
+@media (max-width: 800px) {
+  header { position: relative; }
+  /* show hamburger */
+  .nav-toggle{ display: flex; }
+  /* hide desktop nav by default */
+  .main-nav{ display: none; position: absolute; right: 1rem; top: 100%; background: var(--cinza-escuro); flex-direction: column; padding: 0.75rem 1rem; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); z-index: 50; }
+  .main-nav.open{ display: flex; }
+  .main-nav a{ color: white; margin: 0.25rem 0; }
+  .main-nav .btn-vermelho{ margin: 0.5rem 0 0 0; }
 }
 
 .btn-vermelho {
