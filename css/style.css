@@ -1,0 +1,225 @@
+:root {
+  --vermelho: #cc0000;
+  --cinza-claro: #f2f2f2;
+  --cinza-escuro: #222;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--cinza-claro);
+  color: var(--cinza-escuro);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--cinza-escuro);
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+ 
+}
+
+.logo img {
+  height: 90px;
+   margin: 10px;
+   -webkit-filter: drop-shadow(0px 0px 5px #ffffff);
+  filter: drop-shadow(0px 0px 5px #ffffff);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--vermelho);
+}
+
+.btn-vermelho {
+  background: var(--vermelho);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+
+.hero {
+  text-align: center;
+  background: linear-gradient(to right, #444, #111);
+  color: white;
+  padding: 5rem 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+section {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* two-column layout for the #historia section */
+.historia-grid {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.historia-text {
+  flex: 1 1 50%;
+  text-align: left; /* override section center alignment for large screens */
+}
+.historia-imagem {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+}
+.historia-imagem img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 800px) {
+  .historia-grid {
+    flex-direction: column;
+  }
+  .historia-text {
+    text-align: center;
+  }
+  .historia-imagem img {
+    max-width: 90%;
+  }
+}
+
+h1 {
+  color: var(--vermelho);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: var(--vermelho);
+  margin-bottom: 1rem;
+}
+
+.eventos {
+  list-style: none;
+  padding: 0;
+}
+
+/* estilos para a tabela de eventos */
+.eventos-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0.5rem auto 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background: white;
+}
+.eventos-table th,
+.eventos-table td {
+  padding: 12px 16px;
+  border: 1px solid #eee;
+  text-align: left;
+}
+.eventos-table thead th {
+  background: var(--vermelho);
+  color: white;
+  font-weight: 700;
+}
+.eventos-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+@media (max-width: 600px) {
+  .eventos-table, .eventos-table thead, .eventos-table tbody, .eventos-table th, .eventos-table td, .eventos-table tr {
+    display: block;
+  }
+  .eventos-table thead { /* hide header visually but keep accessible */
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .eventos-table tr { margin-bottom: 0.75rem; }
+  .eventos-table td {
+    border: none;
+    padding: 8px 12px;
+    position: relative;
+    padding-left: 45%;
+    text-align: left;
+  }
+  .eventos-table td:before {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+  /* labels for the two columns on small screens */
+  .eventos-table td:nth-of-type(1):before { content: "Data"; }
+  .eventos-table td:nth-of-type(2):before { content: "Evento"; }
+}
+
+.grid-apoiadores, .grid-destaques, .produtos {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.apoiador, .post, .produto {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.produto img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+footer {
+  background: var(--cinza-escuro);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* utility: make a wrapper fit its content (min-size = content size) */
+.fit-content {
+  display: inline-block;
+  vertical-align: middle; /* keeps it aligned nicely if next to inline elements */
+}
